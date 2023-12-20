@@ -1,0 +1,22 @@
+{   
+    "instructionssticks" : [
+        "Vous avez choisi le jeu des batons! Connaissez vous les regles de ce jeu?",
+        "Dans ce jeu, chaque joueur doit enlever un, deux ou trois batons a chaque tour. Le joueur qui prend le dernier baton perd la partie.",
+        "Vous allez jouer contre un robot, tentez de le battre!",
+        "Vous pouvez choisir soit le nombre de batons soit celui qui commence la partie, le robot choisira l'autre.",
+        "Vous pouvez appuyer sur entrée pour appuyer sur le bouton principal.",
+        "Passez pour commencer!"
+    ],
+    "instructionssnake" : [
+        "Vous avez choisi le snake! Connaissez vous les regles de ce jeu?",
+        "Dans ce jeu, le serpent a une vitesse fixe, le but est de recuperer les pommes qui apparaissent aleatoirement sur le terrain.",
+        "A chaque pomme mangee, le serpent grandit. Si le serpent touche un mur ou son corps, la partie est perdue.",
+        "Chaque pomme mangée vous rapporte aussi un point, tentez d'en gagner le plus possible!",
+        "Vous pouvez choisir parmi la taille de la grille, la vitesse du serpent, le nombre de pommes, pommes empoisonnees et le nombre de murs.",
+        "Les pommes empoisonnées vous font retrecir d'une case et vous suppriment un point (mais ils ne peuvent pas vous tuer).",
+        "Les murs vous font perdre la partie si vous en cognez-un.",
+        "Mettez en pause votre partie en cours en cliquant sur la touche Espace.",
+        "Astuce : relancez une partie avec la touche Entree au lieu de cliquer sur le bouton \"Restart\"!",
+        "Passez pour commencer!"
+    ]
+}

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS DE BASE -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="loaders/loader.css">
+    <!-- CSS SNAKE -->
+    <link rel="stylesheet" href="games/snake/snakegame.css">
+    <link rel="stylesheet" href="games/snake/choicepage.css">
+    <!-- CSS STICKS -->
+    <link rel="stylesheet" href="games/sticks/choicepage.css">
+    <link rel="stylesheet" href="games/sticks/sticksgame.css">
+    <!-- DECLARATION DES SCRIPTS DU MENU -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js%22%3E" defer></script>
+    <script src="useful.js" defer></script>
+    <script src="animations.js" defer></script>
+    <script src="loadgames.js" defer></script>
+    <!-- DECLARATION DES SCRIPTS DU SNAKE-->
+    <script src="games/snake/useful.js" defer></script>
+    <script src="games/snake/cell.js" defer></script>
+    <script src="games/snake/snake.js" defer></script>
+    <script src="games/snake/world.js" defer></script>
+    <script src="games/snake/apple.js" defer></script>
+    <script src="games/snake/sprite.js" defer></script>
+    <script src="games/snake/IA.js" defer></script>
+    <script src="games/snake/cookies.js" defer></script>
+    <script src="games/snake/main.js" defer></script>
+    <!-- DECLARATION DES SCRIPTS DU STICKS GAME -->
+    <script src="games/sticks/confetti.js" defer></script>
+    <script src="games/sticks/usefulClassSticks.js" defer></script>
+    <script src="games/sticks/AI.js" defer></script>    
+    <script src="games/sticks/stick.js" defer></script>
+    <script src="games/sticks/manageSticks.js" defer></script>
+    <script src="games/sticks/main.js" defer></script>
+    <!-- FAVICON-->
+    <link rel="icon" type="image/x-icon" href="icons/favicon.png" />
+    <title>Would you play ?</title>
+</head>
+<body>
+    <!-- ACCUEIL ET MENU -->
+    <header>
+        <div id="background"></div>
+        <h1 id="title">Would you play?</h1>
+        <div id="goback" onclick="goBackFromBorders();"></div>
+        <h1 id="blinkingtext">TAP TO PLAY</h1>
+    </header>   
+    <main id="parent">
+        <div id="child">
+            <div id="container">
+                <div id="borderstick" class="borders">
+                    <div class="forflex">
+                        <button class="play-button" id="stick-button" class="play-button" onmouseover="specialButtonHover(0);" onmouseleave="undoSpecialButtonHover(0)" onclick="startGame(0);">PLAY</button>
+                        <p class="title-game" id="title-sticks">STICKS GAME</p>
+                    </div>
+                    <img class="game-image" src="icons/stick.png" id="stick-image" draggable="false">
+                    <div id="stick-bloc" class="squares" onmouseover="specialHover(0);" onmouseleave="undoSpecialHover(0)" onclick="printSticks();"></div>
+                </div>
+                <div id="bordersnake" class="borders">
+                    <div class="forflex">
+                        <button id="snake-button" class="play-button" onmouseover="specialButtonHover(1);" onmouseleave="undoSpecialButtonHover(1)" onclick="startGame(1)">PLAY</button>
+                        <p class="title-game" id="title-snake">SNAKE</p>
+                    </div>
+                    <img class="game-image" src="icons/snake2.png" id="snake-image" draggable="false">
+                    <div id="snake-bloc" class="squares" onmouseover="specialHover(1);" onmouseleave="undoSpecialHover(1)" onclick="printSnake()"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container-loader">
+            <span id="loader-main">
+                <span id="loader-inner"></span>
+            </span>
+        </div>
+        <div id="game">
+            <div id="instructions">
+                <p></p>
+                <div id="passbutton" onclick="goNextInstruction()"></div>
+                <div id="answerscontainer">
+                    <div class="answers" onclick="goToLastInstruction()">OUI</div>
+                    <div class="answers" onclick="secondInstruction()">NON</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="choice-container-snake">
+        <h1 class="choice-snake-titles">Snake</h1>
+        <div id="choices-snake">
+            <div class="gridinstructions">
+                <p>Choose the tray's size?</p>
+                <select name="size" class="choice-snake-select" id="select-size">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30" selected>30</option>
+                    <option value="50">50</option>
+                    <option value="75">75</option>
+                    <option value="100">100??</option>
+                </select>
+                <img src="games/snake/images/dimensions/30.png" id="img-size">
+            </div>
+            <div class="gridinstructions">
+                <p>Choose the snake's theme?</p>
+                <select name="theme" class="choice-snake-select" id="select-theme">
+                    <option value="pixel" selected>PIXEL THEME</option>
+                    <option value="classic">CLASSIC THEME</option>
+                    <option value="purpleclassic">PURPLE CLASSIC THEME</option>
+                    <option value="pacman">PACMAN THEME</option>
+                    <option value="redpacman">RED PACMAN THEME</option>
+                    <option value="google">GOOGLE THEME</option>
+                    <option value="purplegoogle">PURPLE GOOGLE THEME</option>
+                    <option value="chrome">CHROME THEME</option>
+                </select>
+                <img src="games/snake/images/theme/pixel.png" id="img-theme">
+            </div>
+            <div class="gridinstructions">
+                <p>Choose the snake's speed?</p>
+                <select name="speed" class="choice-snake-select" id="select-speed">
+                    <option value="50">50 blocs/s</option>
+                    <option value="30">30 blocs/s</option>
+                    <option value="20">20 blocs/s</option>
+                    <option value="15">15 blocs/s</option>
+                    <option value="15" selected>10 blocs/s</option>
+                    <option value="5">5 blocs/s</option>
+                    <option value="3">3 blocs/s</option>
+                    <option value="2">2 blocs/s</option>
+                    <option value="1">SERIOUSLY??</option>
+                </select>  
+                <img src="games/snake/images/speed/15.png" id="img-speed">   
+            </div>     
+            <div class="gridinstructions">
+                <p>How many apples?</p>
+                <select name="apples" class="choice-snake-select" id="select-nbr-apples">
+                    <option value="1" selected>1 apple</option>
+                    <option value="2">2 apples</option>
+                    <option value="3">3 apples</option>
+                    <option value="4">4 apples</option>
+                    <option value="5">5 apples</option>
+                    <option value="10">10 apples</option>
+                    <option value="20">20 apples</option>
+                    <option value="50">50 apples</option>
+                    <option value="75">75 apples</option>
+                    <option value="100">100 apples</option>
+                    <option value="200">200 apples</option>
+                </select>
+                <img src="games/snake/images/nbrapples/1.png" id="img-nbr-apples">
+            </div>
+            <div class="gridinstructions">
+                <p>How many poisoned apples?</p>
+                <select name="players" class="choice-snake-select" id="select-nbr-poison-apples">
+                    <option value="0" selected>No poisoned apples</option>
+                    <option value="1">1 poisoned apple</option>
+                    <option value="2">2 poisoned apples</option>
+                    <option value="3">3 poisoned apples</option>
+                    <option value="4">4 poisoned apples</option>
+                    <option value="5">5 poisoned apples</option>
+                    <option value="10">10 poisoned apples</option>
+                    <option value="20">20 poisoned apples</option>
+                    <option value="50">50 poisoned apples</option>
+                    <option value="75">75 poisoned apples</option>
+                    <option value="100">100 poisoned apples</option>
+                </select>
+                <img src="games/snake/images/nbrpoisonapples/0.png" id="img-nbr-poison-apples">
+            </div>
+            <div class="gridinstructions">
+                <p>How many walls?</p>
+                <select name="walls" class="choice-snake-select" id="select-nbr-walls">
+                    <option value="0" selected>No walls</option>
+                    <option value="3">3 walls</option>
+                    <option value="5">5 walls</option>
+                    <option value="10">10 walls</option>
+                    <option value="15">15 walls</option>
+                    <option value="20">20 walls</option>
+                    <option value="30">30 walls</option>
+                    <option value="50">50 walls</option>
+                    <option value="75">75 walls</option>
+                    <option value="100">100 walls</option>
+                </select>
+                <img src="games/snake/images/nbrwalls/0.png" id="img-nbr-walls">
+            </div>
+            <div class="gridinstructions">
+                <p>Which background for game?</p>
+                <select name="players" class="choice-snake-select" id="select-background">
+                    <option value="light_blue" selected>Light blue</option>
+                    <option value="dark_blue">Dark blue</option>
+                    <option value="orange">Orange</option>
+                    <option value="violet">Violet</option>
+                    <option value="pink">Pink</option>
+                    <option value="green">Green</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                    <option value="transparent">Transparent</option>
+                </select>
+                <img src="games/snake/images/gamebackgrounds/light_blue.png" id="img-background">
+            </div>
+            <button id="start-snake-button" onclick="loadingSnake();">Start</button>
+        </div>
+    </div>
+    <div id="go-to-choices" onclick="backToChoices();"></div>
+    <div id="snake-page">
+        <div id="snake-container">
+            <div id="high-score">
+                <img src="games/snake/images/trophy.png" alt="highscore">
+                <p id="snake-high-score-number">0</p>
+            </div>
+            <div id="snake-score">
+                <h1 id="snake-score-text">Score :</h1>
+                <h1 id="snake-score-number">0</h1>
+            </div>
+            <canvas id="snake-canva" width="600px" height="600px"></canvas>
+            <button id="snake-restart-button" onclick="restartGame();">Restart</button>
+        </div>
+    </div>
+    <!-- HTML Du jeu des batons -->
+    <div id="all-sticks-game-container">
+        <div id="choose-sticks-container">
+            <div class="allinstructionssticks">
+                <h1 class="instruction">Choose gamemode</h1>
+                <select class="sticks-select" id="pre-choose-select">
+                    <option value="hard" selected>Hardcore</option>
+                    <option value="medium">Medium</option>
+                    <option value="easy">Easy</option>    
+                </select>
+                <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+            </div>
+            <div class="allinstructionssticks" style="display: none;">
+                <h1 class="instruction">Would you rather choose the number of sticks or which player will start?</h1>
+                <select class="sticks-select" id="first-choose-select">
+                    <option value="1" selected>Number of sticks</option>
+                    <option value="2">Who will start</option>    
+                </select>
+                <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+            </div>
+            <div class="allinstructionssticks" style="display: none;">
+                <h1 class="instruction">Choose the number of sticks !</h1>
+                <input type="number" name="sticks" placeholder="20">
+                <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+            </div>
+            <div class="allinstructionssticks" style="display: none;">
+                <h1 class="instruction">Choose who will start !</h1>
+                <select class="sticks-select" id="second-choose-select">
+                    <option value="player" selected>Me</option>
+                    <option value="bot">Bot</option>    
+                </select>
+                <button id="choose-sticks-button1" class="choose-sticks-button" onclick="appearSticksInstructions();">Choose this</button>
+            </div>
+        </div>
+        <div id="sticks-game-container" style="display: none">
+            <div id="iconplayerandtext">
+                <div id="bot" style="display:none;">
+                    <img src="games/sticks/images/bot.png" draggable="false" id="playing">
+                    <p id="bp1" class="bp">.</p>
+                    <p id="bp2" class="bp">.</p>
+                    <p id="bp3" class="bp">.</p>
+                </div>
+                <div id="player" style="display:none;">
+                    <p>Waiting</p>
+                    <p class="pointplayer">.</p>
+                    <p class="pointplayer">.</p>
+                    <p class="pointplayer">.</p>
+                </div>
+            </div>
+            <div id="sticksremaining">
+                <p class="instruction">Sticks remaining :</p>
+                <p class="instruction"></p>
+            </div>
+            <div id="allsticks"></div>
+            <button id="gonextturn" onclick="goNextTurn();">OK</button>
+        </div>
+        <div id="presentation">
+            <div id="startingplayer">
+                <p class="modify"></p>
+                <p>will start !</p>
+            </div>
+            <div id="nbsticks">
+                <p>There are<p>
+                <p class="modify"><p>
+                <p>sticks<p>
+            </div>
+        </div>
+        <div id="gamestate">
+            <div id="turn">
+                <p class="modify"></p>
+                <p>turn</p>
+            </div>
+            <div id="nbsticks">
+                <p class="modify" ></p>
+                <p>took</p>
+                <p class="modify"></p>
+                <p class="modify">sticks</p>
+            </div>
+        </div>
+        <div id="printwinner" style="display:none;">
+            <canvas id="confetti-canvas" style="z-index:2;position:absolute;top:0;left:0;"></canvas>
+            <div id="contentwinner">
+                <img id="winnerimg" src="" draggable="false" style="transform:rotate(-10deg) scale(1.1);">
+                <div id="textwinner">
+                    <p class="modify"></p>
+                    <p>won !</p>
+                </div>
+                <button id="restart" onclick="restartSticksGame();">Restart</button>
+                <button id="settings" onclick="goToSettingsSticksGame()">Settings</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+    </footer> 
+</body>
+</html>

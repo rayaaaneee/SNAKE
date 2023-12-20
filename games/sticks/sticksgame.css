@@ -1,0 +1,269 @@
+#allsticksgamecontainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container qui fait la taille de la page */
+#sticks-game-container{
+    transition: all 0.3s ease;
+    width: 97vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 5vw;
+}
+
+/* Container qui contient les bâtons */
+#allsticks{
+    width: 80vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all 0.5s ease;
+}
+
+/* Texte qui indique le nombre de bâtons restants */
+#sticksremaining{
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1vw;
+    letter-spacing: 0.7vw;
+}
+
+#sticksremaining p{
+    padding : 0;
+    margin : 0;
+}
+
+/* CSS de chaque bâton */
+.stick{
+    z-index: 9999;
+    width: 5vw;
+    height: 10vw;
+    background-image: url("images/stick.png");
+    background-size: cover;
+    background-position: center;
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+/* CSS des boutons des instructions */
+#gonextturn, #restart, #settings{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    border: 3px solid white;
+    border-radius: 10px;
+    background-color: rgb(128, 112, 206);
+    color: rgb(255, 255, 255);
+    font-size: 3vw;
+    cursor: pointer;
+    transition: 0.1s;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    box-shadow: 0 0 0.5em black;
+    transition: all 0.2s ease;
+    z-index: 9;
+}
+
+#gonextturn:disabled{
+    background-color: rgb(125, 122, 141);
+    color: rgb(255, 255, 255);
+    border: 3px solid white;
+    cursor: default;
+}
+
+#gonextturn:disabled:hover{
+    background-color: rgb(125, 122, 141);
+    color: rgb(255, 255, 255);
+    border: 3px solid white;
+    cursor: default;
+}
+
+
+#gonextturn:hover, #restart:hover, #settings:hover{
+    transition: 0.2s;
+    background-color: rgb(167, 155, 224);
+    color: white;
+    border: 3px white solid;
+}
+
+/* CSS de la div qui absolute qui donne des informations sur la partie */
+#iconplayerandtext{
+    font-family: 'Adelia';
+    position: absolute;
+}
+
+#iconplayerandtext #bot{
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    column-gap: 1vw;
+}
+
+#iconplayerandtext p{
+    padding : 0;
+    margin : 0;
+    font-size: 5vw;
+    margin-bottom: 2vw;
+    text-shadow: 0 0 0.2em rgb(255 255 255)
+}
+
+#iconplayerandtext img{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 10%;
+}
+
+#iconplayerandtext div{
+    transition: all 0.5s ease;
+}
+
+#iconplayerandtext #player p:first-child{
+    color: rgb(209, 96, 96);
+    text-shadow: 0 0 0.5em rgb(255, 255, 255);
+    font-size: 2.5vw;
+    margin-bottom: 0;
+}
+
+#iconplayerandtext #player{
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    column-gap: 1.2vw;
+}
+
+.pointplayer{
+    color: rgb(209, 96, 96);
+    font-size: 10vw;
+    transition: all 0.5s ease;
+}
+
+.bp{
+    transition: all 0.3s ease;
+}
+
+/* Texte de présentation en début de partie */
+#presentation, #gamestate{
+    position: absolute;
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1vw;
+    top: 0;
+    left: 0;
+    transition : all 0.3s ease;
+}
+
+#presentation div:first-child, #gamestate div:first-child{
+    font-size: 10vw;
+    text-align: center;
+    margin-bottom: 2vw;
+    text-shadow: 0 0 0.5em rgb(0, 0, 0);
+}
+
+#presentation div:first-child{
+    color: rgb(145, 92, 100);
+}
+
+#presentation div:last-child, #gamestate div:last-child{
+    font-size: 8vw;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 0.5em rgb(0, 0, 0);
+}
+
+#presentation div, #gamestate div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2vw;
+}
+
+#presentation p, #gamestate p{
+    padding : 0;
+    margin : 0;
+}
+
+#turn p:last-child{
+    color: white;
+}
+
+#printwinner{
+    position: absolute;
+    font-size: 2vw;
+    top : 0;
+    left : 0;
+    height: 100vh;
+    width: 100vw;
+    row-gap: 15vw;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+#contentwinner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 3vw;
+}
+
+#textwinner{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8vw;
+    width: 100%;
+    height: 100%;
+}
+
+#printwinner p {
+    z-index : 4;
+    font-size: 21vw;
+    padding : 0;
+    margin : 0;
+    color: white;
+    text-shadow: 0 0 0.5em rgb(0, 0, 0);
+}
+
+#printwinner img {
+    position: absolute;
+    height: 20vw;
+    z-index : 3;
+    transition : 2s;
+    margin-bottom: 35vw;
+    margin-right: 35vw;
+    z-index: -1;
+}

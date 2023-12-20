@@ -1,0 +1,421 @@
+/* Définition de la police du titre */
+@font-face {
+    font-family: 'BubbleGum';
+    /* src: url('fonts/BubbleGum.ttf'); */
+    src: url("fonts/ADELIA.otf");
+}
+
+/* Définition de la police du texte qui clignote */
+@font-face {
+    font-family: 'Adelia';
+    src: url("fonts/ADELIA.otf");
+}
+
+/* Empecher le scroll sur toute la page */
+body{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* On écrit le titre avec son contour et on le positionne */
+#title{
+    cursor: default;
+    font-family: 'BubbleGum';
+    color: #fff;
+    font-size: 40px;
+    top: 0;
+    right: 20px;
+    position: absolute;
+    text-shadow: 2px 0 0 #000, 2px 2px 0 #000, 0 2px 0 #000, -2px 2px 0 #000, -2px 0 0 #000, -2px -2px 0 #000, 0 -2px 0 #000, 2px -2px 0 #000;
+    z-index: 9999;
+}
+
+/* Mettre une couleur en background */
+#background{
+    background-color: rgb(250, 248, 246);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    transition: 0.2s;
+}
+
+#background-snake{
+    background-image: url(games/snake/backgrounds/forest.jpg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    transition: 0.2s;
+}
+
+/* Définition du container et alignement vertical et horizontal */
+#container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 65vh; /* permet de centrer verticalement */
+    transform: translateY(-60%);
+}
+
+/* Taile et forme des cases */
+.squares{
+    width: 350px;
+    height: 350px;
+    margin: 10px;
+    border-radius: 80px;
+    transition: all 0.3s;
+    z-index: 3;
+}
+
+/* Image de fond des cases */
+#stick-bloc{
+    background-image: url("backgrounds/livingroom.jpg");
+    background-repeat: no-repeat;
+    background-size: 120% 100%;
+}
+
+
+#snake-bloc{
+    background-image: url("backgrounds/forest.jpg");
+    background-repeat: no-repeat;
+    background-size: 150% 100%;
+}
+
+/* Hover global des cases */
+.squares:hover{
+    cursor: pointer;
+    scale: 0.98;
+    transition: all 0.3s;
+    filter: blur(1.5px);
+}
+
+/* Arrière des cases */
+@keyframes disappear{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+#borderstick{
+    background-color: rgb(183, 205, 211);
+    transition: all 0.3s;
+}
+
+#borderstickv2{
+    animation-name: disappear ;
+    animation-duration: 0.3s;
+}
+
+#bordersnake{
+    background-color: rgb(209, 224, 170);
+    transition : all 0.3s;
+}
+
+#bordersnakev2{
+    animation-name: disappear ;
+    animation-duration: 0.3s;
+}
+
+.borders{
+    width: 350px;
+    height: 350px;
+    margin: 10px;
+    border-radius: 80px;
+    border: 2px solid #000000;
+    transition: all 0.3s;
+    z-index: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Centrage du bouton / texte sur chaque case */
+.forflex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bouton de retour */
+#gobackv2, #gobacksnakev2, #gobacksticksv2{
+    display: none;
+}
+
+#goback{
+    background-image: url("icons/arrowpink.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 120px;
+    height: 100px;
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    display: none;
+    transition: all 0.2s;
+    z-index: 9999;
+}
+
+/* Bouton de retour en hover */
+#goback:hover, #gobacksnake:hover, #gobacksticks:hover{
+    background-image: url("icons/arrowwhite.png");
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.3s;
+}
+
+/* Couleur du bouton selon le jeu choisi */
+#gobacksnake{
+    background-image: url("icons/arrowgreen.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 120px;
+    height: 100px;
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    display: none;
+    transition: all 0.2s;
+    z-index: 9999;
+}
+
+#gobacksticks{
+    background-image: url("icons/arrowviolet.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 120px;
+    height: 100px;
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    display: none;
+    transition: all 0.2s;
+    z-index: 9999;
+}
+
+/* Redimensonner les images logo des jeux et les placer */
+.game-image{
+    display: none;
+    margin-top: 20px;
+    margin-left: 20px;
+    z-index: -1;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    transition: all 0.3s;
+}
+
+#stick-imagev2{
+    transform : rotate(-25deg);
+    scale : 2.4;
+    padding-right: 100px;
+    padding-bottom: 100px;
+}
+
+#snake-imagev2{
+    transform : rotate(-20deg);
+    height: 350px;
+    scale : 2;
+    padding-right : 30px;
+    padding-bottom: 320px;
+}
+
+/* Positionner et designer les bouttons play, leur hover*/
+.play-button{
+    display: none;
+}
+
+.play-buttonv2{
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    z-index: 5;
+    font-size: 50px;
+    font-family: 'BubbleGum';
+    transition: all 0.1s;
+    top: 40%;
+}
+
+#stick-button{
+    background-color: rgb(178, 230, 230, 0.8);
+    border : 3px dashed rgb(0, 0, 0);
+    color: rgb(48, 47, 47);
+}
+
+#stick-button:hover{
+    background-color: rgb(0, 0, 0,0.9);
+    color: rgb(178, 230, 230);
+    border : none;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+#snake-button{
+    background-color: rgba(64, 126, 70, 0.9);
+    border : 3px dashed rgb(255, 255, 255);
+    color : white;
+}
+
+#snake-button:hover{
+    background-color: rgb(255, 255, 255, 0.9);
+    border: none;
+    color: rgba(64, 126, 70);
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+/* Paramètres du curseur clignotant */
+#blinkingtext{
+    display: block;
+    cursor: default;
+    top: 8vh;
+    left: 37vw;
+    position: absolute;
+    color: #e96b6b;
+    font-size: 70px;
+    font-family: 'Adelia';
+}
+
+/* Positionnement des titres des jeux */
+.title-game{
+    cursor : default;
+    position: absolute;
+    font-family: 'BubbleGum';
+    z-index: 5;
+    color: #000;
+    top: 330px;
+    text-shadow: 2px 0 0 #fff, 2px 2px 0 #fff, 0 2px 0 #fff, -2px 2px 0 #fff, -2px 0 0 #fff, -2px -2px 0 #fff, 0 -2px 0 #fff, 2px -2px 0 #fff;
+}
+
+#title-sticks{
+    font-size: 47px;
+}
+
+#title-snake{
+    font-size: 50px;
+}
+/* ON PASSE AU CSS DES ELEMENTS COMMUNS AUX DEUX JEUX */
+#game{
+    display: none;
+}
+
+#gamev2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* On design de chaque case des instructions */
+#instructionsv2{
+    display:none;
+}
+
+#instructions{
+    cursor: default;
+    display: none;
+    width: 70vw;
+    height: 25vw;
+    background-color: rgba(255, 255, 255);
+    border-radius: 80px;
+    box-shadow: 12px 12px 0 0 rgb(65, 88, 94);
+    transform: translateY(-50%);
+}
+
+/* On positionne le logo de la touche "enter" dans le container + son hover */
+#passbutton{
+    display : block;
+    width: 70px;
+    height: 70px;
+    background-image: url("icons/enterlogo.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: absolute;
+    z-index: 100;
+    right: 40px;
+    bottom: 30px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+#passbutton:hover{
+/*     background-image: url("icons/enterlogohover.png"); */
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.3s;
+} 
+
+/* Design du texte et placement de celui-ci dans le container */
+#instructions p{
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 100px;
+    font-family: 'BubbleGum';
+    color: rgb(65, 88, 94);
+}
+
+/* Design des boutons OUI ET NON à la premiere case des consignes */
+#answerscontainer{
+    display : flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 60px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 20px;
+}
+.answers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: rgb(65, 88, 94);
+    font-family: 'BubbleGum';
+    width: 10vw;
+    height: 7vw;
+    background-color: rgba(255, 255, 255);
+    border-radius: 40px;
+    box-shadow: 6px 6px 0 0 rgb(65, 88, 94);
+    border: solid 2px rgb(65, 88, 94);
+    z-index: 9999;
+    bottom : 20px;
+    margin-top: 15vw;
+    transition: all 0.2s;
+}
+
+.answers:hover{
+    background-color: rgb(65, 88, 94);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: none;
+}
+
+.answerv2{
+    display: none;
+}
+
+/* De base on display none le conteneur du stick */
+#all-sticks-game-container{
+    display: none;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition: opacity 1s;
+}

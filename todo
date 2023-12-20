@@ -1,0 +1,23 @@
+/* A faire un de ces 4 si j'ai le temps */
+
+1) Coder un pong 
+
+2) Mettre un bruitage de debut de niveau quand on clique sur le bouton play
+
+3) Bulles à la mario galaxy pour expliquer les regles de chaque jeu et si on reste appuyé sur espace le texte se 
+défile plus vite, si on appuie sur entrée on passe les explications
+
+TODO : Pour pouvoir changer le favicon quand on va sur une iframe integree, voici un exemple de code qui marche :
+
+// Fonction qui change le favicon si aucun <link> n'est présent dans le document, sinon elle change le href du <link> 
+//présent
+var link = document.querySelector("link[rel~='icon']");
+if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.getElementsByTagName('head')[0].appendChild(link);
+}
+link.href = 'https://stackoverflow.com/favicon.ico';
+
+4) Jeu labyrinthe à insérer
+https://www.youtube.com/watch?v=K7vaT8bZRuk

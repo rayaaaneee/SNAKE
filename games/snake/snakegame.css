@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'Adelia';
+    src: url("../../fonts/ADELIA.otf");
+}
+
+#snake-page{
+    display: none;
+    margin-top: 49vh; 
+    transform: translateY(-50%);
+}
+
+#choice-container-snake{
+    display: none;
+}
+
+
+#snake-container *, #choice-container-snake *{
+    text-align: center;
+    font-family: 'Adelia';
+}
+
+/* On définit le container blanc de la grille et du score */
+#snake-container{
+    transition: all 1s ease;
+    width: 700px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7%;
+    background-color: rgba(255, 255, 255, 0.651);
+    box-shadow: 0 0 15px 0px rgba(0,0,0,0.5);
+    -webkit-backdrop-filter: blur(3px); /* assure la compatibilité avec safari */
+    backdrop-filter: blur(3px);
+    border: 2px solid rgb(0, 0, 0);
+}
+
+/* Disposition et style du score */
+#snake-score{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 7px;
+    font-size: 20px;
+    bottom: 87%;
+    color: rgb(0, 0, 0);
+}
+
+/* Bouton recommencer qui n'apparaitra que lorsque le jeu sera terminé, on lui donne son style et on le
+position */
+#snake-restart-button{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    border: 3px solid white;
+    border-radius: 5px;
+    background-color: rgb(112, 206, 176);
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+#snake-restart-button:hover{
+    transition: 0.2s;
+    background-color: rgb(22, 105, 79);
+    color: rgb(255, 255, 255);
+    border: none;
+}
+
+/* On définit le style des cases de la grille */
+#snake-canva{
+    transition: 0.2s;
+    margin-top: 45px;
+}
+
+#high-score{
+    display : none;
+    transition: 0.2s;
+}
+
+#high-scorev2{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 1%;
+    left : -30px;
+    width: 200px;
+    height: 60px;
+    font-size: 25px;
+    transition: 0.2s;
+}
+
+#high-scorev2 img{
+    width: 40px;
+    margin-right: 5px;
+}
+
+#high-scorev2 p{
+    position: absolute;
+    left: 62%;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(218, 173, 95);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#go-to-choices{
+    position: absolute;
+    display: none;
+    top : 90px;
+    right : 40px;
+    width: 90px;
+    height: 90px;
+    background: url(images/choices.png);
+    background-size: cover;
+    cursor: pointer;
+    transition: 0.4s;
+    z-index: 1;
+}
+
+#go-to-choices:hover{
+    transform: scale(1.1) rotate(45deg);
+    transition: 0.4s;
+}

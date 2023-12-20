@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'Adelia';
+    src: url(../../fonts/ADELIA.otf);
+}
+
+*{
+    font-family: 'Adelia';
+}
+
+/* Container global de la page */
+#choose-sticks-container{
+    height: 95vh;
+    width: 97vw;
+}
+
+.instruction{
+    font-size: 4vw;
+    color: white;
+    text-align: center;
+    margin-bottom: 1em;
+    text-shadow: 0 0 0.6em black;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: all 0.5s ease;
+}
+
+input[type="number"]{
+    width: 10vw;
+    height: 5vw;
+    font-size: 3vw;
+    text-align: center;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;   
+    background-color: white;
+    box-shadow: 0 0 0.6em black;
+    -webkit-box-shadow: 0 0 0.6em black;
+    -moz-box-shadow: 0 0 0.6em black;
+    border: none;
+    outline: none;
+
+}
+/* Suppression des flèches des input type number */
+
+    /* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+ 
+    /* Chrome */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+	margin:0;
+}
+ 
+    /* Opéra*/
+input::-o-inner-spin-button,
+input::-o-outer-spin-button { 
+	-o-appearance: none;
+	margin:0
+}
+
+/* container des boutons des instructions */
+.allinstructionssticks{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5vw;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CSS des boutons des instructions */
+.choose-sticks-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: fit-content;
+    border: 3px solid white;
+    border-radius: 10px;
+    background-color: rgb(128, 112, 206);
+    color: rgb(255, 255, 255);
+    font-size: 3vw;
+    cursor: pointer;
+    transition: 0.1s;
+    padding: 0.5vw;
+    box-shadow: 0 0 0.5em black;
+}
+
+.choose-sticks-button:hover{
+    transition: 0.2s;
+    background-color: rgb(167, 155, 224);
+    color: white;
+    border: 3px white solid;
+}
+
+/* CSS du select */
+.sticks-select{
+    width: 15vw;
+    height: 5vw;
+    font-size: 2.5vw;
+    text-align: center;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;   
+    background-color: white;
+    box-shadow: 0 0 0.6em black;
+    -webkit-box-shadow: 0 0 0.6em black;
+    -moz-box-shadow: 0 0 0.6em black;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+#first-choose-select{
+    width: 23vw;
+}

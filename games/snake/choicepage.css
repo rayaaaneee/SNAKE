@@ -1,0 +1,95 @@
+#choice-container-snake{
+    display: none;
+    align-self: center;
+    top: 0;
+    position: absolute;
+    width : 75vw;
+    height : 100vh;
+    background-color: rgba(240, 248, 255, 0.6);
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.5);
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+/* On cache la barre de scroll tout en autorisant le scroll */
+#choice-container-snake::-webkit-scrollbar{
+    display: none;
+}
+
+#choice-container-snake *{
+    color : black;
+}
+
+#choices-snake{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+}
+
+.choice-snake-titles{
+    text-align: center
+}
+
+.gridinstructions{
+    margin-left: 40px;
+    margin-right: 30px;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.gridinstructions img{
+    width : 130px;
+}
+
+#img-background{
+    width: 80px;
+    border-radius: 20%;
+    border: 2px solid black;
+}
+
+select {
+    width: 140px;
+    height: 35px;
+    border-radius: 4px;
+    background: rgb(255, 255, 255, 0.3);
+    border: 1.5px solid rgb(0, 0, 0);
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+#start-snake-button{
+    margin-top: 3vw;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 60px;
+    border: 3px solid white;
+    border-radius: 5px;
+    background-color: rgb(112, 206, 176);
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    cursor: pointer;
+    transition: 0.1s;
+    margin-bottom: 8vh;
+} 
+
+#start-snake-button:hover{
+    transition: 0.2s;
+    background-color: rgb(22, 105, 79);
+    color: rgb(255, 255, 255);
+    border: none;
+}
