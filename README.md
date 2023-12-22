@@ -38,7 +38,7 @@ Ayant fait une interface me permettant d'ajouter un autre jeu, j'ai donc mis en 
 ## PRODUCTION
 
 Essayez la dernière version en production de Would You Play avec ce lien : 
-> [https://vercel-sunsys.vercel.app/](https://would-you-play.vercel.app/)
+> https://would-you-play.vercel.app/
 
 ## LICENCE
 
