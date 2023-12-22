@@ -25,6 +25,7 @@ Cela est du à une contrainte de sécurité d'Ajax.
 ## LICENCE
 
 https://rayanemerlin.com/
+
 Decembre 2022
 
 ## AUTEUR
